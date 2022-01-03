@@ -17,7 +17,9 @@ public class Host {
 	}
 	
 	public static void main(String[] args) {
-		// TODO implement method
+		// Make a Host object to use non-statics
+		Host host = new Host();
+		host.run(args);
 	}
 
 }
