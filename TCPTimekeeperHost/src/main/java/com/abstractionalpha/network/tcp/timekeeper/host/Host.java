@@ -2,12 +2,13 @@ package com.abstractionalpha.network.tcp.timekeeper.host;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Host {
 	
 	/** Socket for communication with client */
-	private Socket socket = null;
+	private ServerSocket serverSocket = null;
 	
 	/** Input stream for socket communication */
 	private DataInputStream input = null;
