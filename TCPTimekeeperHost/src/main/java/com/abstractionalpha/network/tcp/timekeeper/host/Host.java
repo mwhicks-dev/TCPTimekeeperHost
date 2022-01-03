@@ -25,9 +25,9 @@ public class Host {
 	/**
 	 * Handles Client instances accepted in Host#run.
 	 * 
-	 * @param socket
+	 * @param socket -- server/client TCP connection socket
 	 */
-	private void handleClient(Socket socket) {
+	private void handleClient(final Socket socket) {
 		// Establish IO streams
 		try {
 			input = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
