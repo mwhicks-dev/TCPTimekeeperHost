@@ -19,6 +19,7 @@ public class Host {
 	/** Output stream for socket communication */
 	private DataOutputStream output = null;
 	
+	/** Port used for TCP connection */
 	private static final int PORT = 26500;
 	
 	/**
