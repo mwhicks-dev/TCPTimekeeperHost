@@ -1,5 +1,7 @@
 package com.abstractionalpha.network.tcp.timekeeper.host;
 
+import java.io.IOException;
+import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Host {
@@ -13,7 +15,37 @@ public class Host {
 	}
 	
 	private void run(String[] args) {
-		// TODO implement method
+		ServerSocket serverSocket = null;
+		
+		// Set up
+		try {
+			// NOTE Add client info when implemented
+			
+			// Open ServerSocket
+			serverSocket = new ServerSocket(PORT_NUMBER);
+		} catch(Exception e) {
+			System.err.println(String.format("Can't initialize host: %s", e));
+			e.printStackTrace();
+			System.exit(1);
+		}
+		
+		// Accept and read new connections
+		while (true) {
+			try {
+				// Accept new client connection
+				Socket sock = serverSocket.accept();
+				
+				// Handle client
+				Thread t = new Thread() {
+					public void run() {
+						handleClient(sock);
+					}
+				};
+				t.start();
+			} catch (IOException e) {
+				System.err.println(String.format("Can't accept client %s", e));
+			}
+		}
 	}
 	
 	public static void main(String[] args) {
